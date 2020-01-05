@@ -3,16 +3,15 @@ In this project, [Russian Traffic Sign Database (RTSD)](http://graphics.cs.msu.r
 
 ## RTSD info
 RTSD consists of 3 parts: 
-- *RTSD Classification*
-- *RTSD Detection*
-- *RTSD Full-Frames*.
+- *Classification*
+- *Detection*
+- *Full-Frames*.
 
 *RTSD Classification* part has 2 groups of images: 
 - *RTSD-r1* 
 - *RTSD-r3*.
 
-*RTSD-r1*: 67 classes, 32 983 images of (48, 48, 3) shape
-
+*RTSD-r1*: 67 classes, 32 983 images of (48, 48, 3) shape\
 *RTSD-r3*: 106 classes, 93 654 RGB images with shapes between (16, 16, 3) and (320, 280, 3)
 
 *RTSD-r1* has been selected for training.
