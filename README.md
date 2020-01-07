@@ -19,7 +19,7 @@ RTSD consists of 3 parts:
 *RTSD-r1* has been selected for training.
 
 ## Colab info
-[Google Colaboratory] was used for the project. It is a Google research project created to help disseminate machine learning education and research. It's a Jupyter notebook environment that requires no setup to use and runs entirely in the cloud. *Runtime type* was changed to GPU (free GPU NVIDIA Tesla K80 with 13 GB RAM), so all calculations were carried out on it.
+[Google Colaboratory](https://colab.research.google.com/) was used for the project. It is a Google research project created to help disseminate machine learning education and research. It's a Jupyter notebook environment that requires no setup to use and runs entirely in the cloud. *Runtime type* was changed to GPU (free GPU NVIDIA Tesla K80 with 13 GB RAM), so all calculations were carried out on it.
 
 ## Project info
 Main steps of project are: 
