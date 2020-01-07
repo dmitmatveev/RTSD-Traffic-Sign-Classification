@@ -13,10 +13,13 @@ RTSD consists of 3 parts:
 - *RTSD-r1* 
 - *RTSD-r3*.
 
-*RTSD-r1*: 67 classes, 32 983 images of (48, 48, 3) shape\
+*RTSD-r1*: 67 classes, 32 983 RGB images of (48, 48, 3) shape\
 *RTSD-r3*: 106 classes, 93 654 RGB images with shapes between (16, 16, 3) and (320, 280, 3)
 
 *RTSD-r1* has been selected for training.
+
+## Colab info
+[Google Colaboratory] was used for the project. It is a Google research project created to help disseminate machine learning education and research. It's a Jupyter notebook environment that requires no setup to use and runs entirely in the cloud. *Runtime type* was changed to GPU (free GPU NVIDIA Tesla K80 with 13 GB RAM), so all calculations were carried out on it.
 
 ## Project info
 Main steps of project are: 
@@ -103,8 +106,18 @@ validation loss: -0.07462, validation accuracy: +0.01981 (+1.981%)**
 ## Representing the results
 Let show the results of the prediction on new images founded in web:
 <p align="center">
-  </br></br><img src="./readme_resources/model_architecture.png"></br></br>
+  </br></br><img src="./readme_resources/results_examples_1_en.png"></br></br>
 </p>
-Some of them (*new.jpg* and *new_2.jpg*) weren't used in training (no images with these classes) but results are interesting.
+Some of them (*new.jpg* and *new_2.jpg*) weren't used in training (no images with these classes) but results are interesting. Other images were predicted correctly with probabilities between 82.255% and 99.999%
 
-- errors visualizing.
+## Errors visualizing
+Validation dataset contains 9 895 images and 51 of them are wrong predicted. Let show the results of wrong predictions over the validation dataset:
+<p align="center">
+  </br></br><img src="./readme_resources/incorrect_val_results_examples_new_en.png"></br></br>
+</p>
+
+Train dataset contains 23 088 images and only 9 of them are wrong predicted. The results of wrong predictions over the train dataset:
+<p align="center">
+  </br></br><img src="./readme_resources/incorrect_train_results_examples_new_en.png"></br></br>
+</p>
+Some of images are difficult to determine even by myself
