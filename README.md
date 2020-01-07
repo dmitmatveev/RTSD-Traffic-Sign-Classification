@@ -56,6 +56,9 @@ CNN model was created with [Keras library](https://keras.io/). [Netron](https://
   </br></br><img src="./readme_resources/model_architecture.png"></br></br>
 </p>
 
+**Number of epochs: 47
+Past time: 146 s = 2.43 min**
+
 Accuracies (train/val) during №1 training process:
 </br></br><img src="./readme_resources/train1_acc_per_epochs_en.png"></br></br>
 
@@ -67,7 +70,41 @@ Confision matrix shows which classes may be confused with another ones. Diagonal
 
 Excel-file with [Sklearn classification report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) is available at this repository's [link](train1_val_report_en.xlsx)
 
-- data augmentation
-- №2 training
-- representing the results
+Final results after training process №1:\
+**validation loss: 0.09402, validation accuracy: 0.97504**
+
+## Data augmentation
+Results could be improved be increasing the number of images and by varying the images using [Keras ImageDataGenerator](https://keras.io/preprocessing/image/).\
+Example of images transformation and varying:\
+</br></br><img src="./readme_resources/data_augumentation_example_en.png"></br></br>
+
+## №2 training process
+For each original image from *RTSD-r1* ImageDataGenerator creates 16 (number is choosed manually) new images with random transformations that were selected.\
+**Number of epochs: 13\
+Past time: about 8 300 s = 139 min = 2 h 30 min**
+
+Accuracies (train/val) during №2 training process:
+</br></br><img src="./readme_resources/train2_acc_per_epochs_en.png"></br></br>
+
+Loss-functions (train/val) during №2 training process:
+</br></br><img src="./readme_resources/train2_loss_per_epochs_en.png"></br></br>
+
+Confusion matrix after №2 training process:
+</br></br><img src="./readme_resources/train2_confusion_matrix_en.png"></br></br>
+
+Final results after training process №2:\
+**validation loss: 0.0194, validation accuracy: 0.99485**
+
+*Final results after training process №1:\
+validation loss:* 0.09402, *validation accuracy:* 0.97504\
+**Improvements:\
+validation loss: -0.07462, validation accuracy: +0.01981 (+1.981%)**
+
+## Representing the results
+Let show the results of the prediction on new images founded in web:
+<p align="center">
+  </br></br><img src="./readme_resources/model_architecture.png"></br></br>
+</p>
+Some of them (*new.jpg* and *new_2.jpg*) weren't used in training (no images with these classes) but results are interesting.
+
 - errors visualizing.
