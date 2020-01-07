@@ -40,6 +40,7 @@ Class №48 takes 10.78% of images whereas class №10 takes up 0.01% of images.
 Examples of images per classes in *RTSD-r1*:
 </br></br><img src="./readme_resources/ImagesSamples_en.png"></br></br>
 
+## *RTSD-r1* labeling error elimination
 *RTSD-r1* has some problems with labeling and image displaying. For example some of images in class №1 should be labeled as №2. For example these images: *[0, 1, 2, 20, 21, 22, 23]*
 </br></br><img src="./readme_resources/Class_1_en.png"></br></br>
 
@@ -49,3 +50,24 @@ For example some of images in class №2 should be labeled as №1. For example 
 For example some of images in class №49 should be horizontally flipped. For example these images: *[177, 178, 179, 180, 181, 182]*
 </br></br><img src="./readme_resources/Class_49_en.png"></br></br>
 
+## Creating and №1 training a convolutional neural network model
+CNN model was created with [Keras library](https://keras.io/). [Netron](https://lutzroeder.github.io/netron/) service helped with the fancy model architecture visualisation. For Netron service model file like *model.hdf5* is needed:
+<p align="center">
+  </br></br><img src="./readme_resources/model_architecture.png"></br></br>
+</p>
+
+Accuracies (train/val) during №1 training process:
+</br></br><img src="./readme_resources/train1_acc_per_epochs_en.png"></br></br>
+
+Loss-functions (train/val) during №1 training process:
+</br></br><img src="./readme_resources/train1_loss_per_epochs_en.png"></br></br>
+
+Confision matrix shows which classes may be confused with another ones. Diagonal elements are right predicted classes.
+</br></br><img src="./readme_resources/train1_confusion_matrix_en.png"></br></br>
+
+Excel-file with [Sklearn classification report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) is available at this repository's [link](train1_val_report_en.xlsx)
+
+- data augmentation
+- №2 training
+- representing the results
+- errors visualizing.
