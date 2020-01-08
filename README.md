@@ -1,6 +1,6 @@
 # Convolutional Neutral Network for Traffic Sign Recognition. 
 In this project, [Russian Traffic Sign Database (RTSD)](http://graphics.cs.msu.ru/en/research/projects/rtsd) is used. RTSD-r1 (with 32 983 images) was selected to classify traffic signs into 67 groups.\
-Were achieved:
+Results:
 - 99.485% accuracy on validation dataset
 - 99.961% accuracy on train dataset.
 All code is represented in [Colab Jupyter Notebook file](main_script_EN.ipynb).
