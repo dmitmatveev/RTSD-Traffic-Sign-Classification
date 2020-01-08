@@ -72,10 +72,39 @@ CNN model was created with [Keras library](https://keras.io/). [Netron](https://
   </br></br><img src="./readme_resources/model_architecture.png"></br></br>
 </p>
 
-Data was splited 70% (train) / 30% (validation).
-Train dataset shape: (23088, 48, 48, 3) -> Train labels shape: (23088, 67)
+Using of below method of *Keras model* object allows us to see Total, Trainable and Non-trainable params of CNN:
+```python
+model.summary()
+```
+```python
+Total params: 2,795,875
+Trainable params: 2,794,659
+Non-trainable params: 1,216
+```
+Data was splited 70% (train) / 30% (validation).\
+Train dataset shape: (23088, 48, 48, 3) -> Train labels shape: (23088, 67)\
 Val dataset shape:   (9895, 48, 48, 3)  -> Val labels shape:   (9895, 67)
 
+To prevent an overfitting *Keras.callbacks.EarlyStopping* was used:
+```python
+# condition of stopping the learning avoiding an overfitting
+es_callback = EarlyStopping(monitor='val_loss',  # observed value
+                            patience=3,  # during this number of epochs the val_loss should increase to stop learning
+                            restore_best_weights=True)
+```
+To save the model *Keras.callbacks.ModelCheckpoint* was used:
+```python
+filepath = results_path + "/model-train1_new_en.hdf5"
+
+# for saving the model after learning
+checkpoint_callback = ModelCheckpoint(filepath=filepath,
+                                      monitor='val_loss',
+                                      save_best_only=True)
+```
+Batch size:
+```python
+batch_size=5000
+```
 **Number of epochs: 47
 Past time: 146 s = 2.43 min**
 
@@ -118,7 +147,7 @@ datagen = ImageDataGenerator(
   fill_mode="nearest",
   preprocessing_function=rescaling_func)
 ```
-Example of images transformation and varying:
+Example of images transformation and varying is shown below. Left column - is an original images, other columns represents the images after randomly choosed transformation:
 </br></br><img src="./readme_resources/data_augumentation_example_en.png"></br></br>
 The new training dataset has been increased from 34799 to 139148 samples. The validation and test set remained untouched.
 
