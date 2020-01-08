@@ -105,7 +105,7 @@ Batch size:
 ```python
 batch_size=5000
 ```
-**Number of epochs: 47
+**Number of epochs: 47\
 Past time: 146 s = 2.43 min**
 
 Accuracies (train/val) during №1 training process:
