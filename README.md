@@ -22,6 +22,17 @@ RTSD consists of 3 parts:
 [Google Colaboratory](https://colab.research.google.com/) was used for the project. It is a Google research project created to help disseminate machine learning education and research. It's a Jupyter notebook environment that requires no setup to use and runs entirely in the cloud. *Runtime type* was changed to GPU (free GPU NVIDIA Tesla K80 with 13 GB RAM), so all calculations were carried out on it.
 
 ## Project info
+Python modules versions:
+```python
+Numpy version:  1.17.4
+Pandas version:  0.25.3
+matplotlib version:  3.1.2
+cv2 version:  4.1.2
+keras version:  2.2.5
+sklearn version:  0.21.3
+skimage version:  0.15.0
+SeaBorn version:  0.9.0
+```
 Main steps of project are: 
 - analyzing and visualizing the RTSD images for traffic signs classification
 - *RTSD-r1* labeling error elimination
@@ -42,22 +53,29 @@ Class №48 takes 10.78% of images whereas class №10 takes up 0.01% of images.
 
 Examples of images per classes in *RTSD-r1*:
 </br></br><img src="./readme_resources/ImagesSamples_en.png"></br></br>
+**Size of RTSD-r1: 1.7 GB**
 
 ## *RTSD-r1* labeling error elimination
-*RTSD-r1* has some problems with labeling and image displaying. For example some of images in class №1 should be labeled as №2. For example these images: *[0, 1, 2, 20, 21, 22, 23]*
+*RTSD-r1* has some problems with labeling and image displaying. For example some of images in class №1 should be labeled as №2 like these images: *[0, 1, 2, 20, 21, 22, 23]*
 </br></br><img src="./readme_resources/Class_1_en.png"></br></br>
 
-For example some of images in class №2 should be labeled as №1. For example these images: *[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 28, 29, 32, 33, 34, 466, 467, 468, 469]*
+For example some of images in class №2 should be labeled as №1 like these images: *[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 28, 29, 32, 33, 34, 466, 467, 468, 469]*
 </br></br><img src="./readme_resources/Class_2_en.png"></br></br>
 
-For example some of images in class №49 should be horizontally flipped. For example these images: *[177, 178, 179, 180, 181, 182]*
+Also there are another images which labels should be changed. All problems solving in [code](main_script_EN.ipynb).
+
+For example some of images in class №49 should be horizontally flipped like these images: *[177, 178, 179, 180, 181, 182]*
 </br></br><img src="./readme_resources/Class_49_en.png"></br></br>
 
 ## Creating and №1 training a convolutional neural network model
-CNN model was created with [Keras library](https://keras.io/). [Netron](https://lutzroeder.github.io/netron/) service helped with the fancy model architecture visualisation. For Netron service model file like *model.hdf5* is needed:
+CNN model was created with [Keras library](https://keras.io/). [Netron](https://lutzroeder.github.io/netron/) service helped with the fancy model architecture visualisation. Model file like *model.hdf5* is needed for Netron service:
 <p align="center">
   </br></br><img src="./readme_resources/model_architecture.png"></br></br>
 </p>
+
+Data was splited 70% (train) / 30% (validation).
+Train dataset shape: (23088, 48, 48, 3) -> Train labels shape: (23088, 67)
+Val dataset shape:   (9895, 48, 48, 3)  -> Val labels shape:   (9895, 67)
 
 **Number of epochs: 47
 Past time: 146 s = 2.43 min**
@@ -77,9 +95,33 @@ Final results after training process №1:\
 **validation loss: 0.09402, validation accuracy: 0.97504**
 
 ## Data augmentation
-Results could be improved be increasing the number of images and by varying the images using [Keras ImageDataGenerator](https://keras.io/preprocessing/image/).\
-Example of images transformation and varying:\
+Because of not so mach data of some classes *recall* results are not so good for some of them. Results could be improved by increasing the number of images and by varying the images using [Keras ImageDataGenerator](https://keras.io/preprocessing/image/).\
+Used transformation:
+- rotation range (± 8°)
+- zoom range (from 80% up to 120% of image)
+-	width shift range (± 12%)
+-	height shift range (± 12%)
+- brightness range (from 30% up to 170% of image's brightness)
+- *fill mode = 'nearest'* (blank space appeared after transformation will be filled with value of nearest pixel of original image)
+
+### Solving the ImageDataGenerator problem after brightness_range usage
+Because of *brightness_range* usage output images after transformation are [0, 255] scaled. To rescale them to [0, 1] we need to use *preprocessing_function*. It applies after all transformations so we define a *rescaling_func* that reduces each pixel of each image by 255.
+```python
+def rescaling_func(image):
+    return image/255
+
+datagen = ImageDataGenerator(
+  rotation_range=8,
+  zoom_range=[0.8, 1.2],
+  width_shift_range=0.12,
+  height_shift_range=0.12,
+  brightness_range=[0.3, 1.7],
+  fill_mode="nearest",
+  preprocessing_function=rescaling_func)
+```
+Example of images transformation and varying:
 </br></br><img src="./readme_resources/data_augumentation_example_en.png"></br></br>
+The new training dataset has been increased from 34799 to 139148 samples. The validation and test set remained untouched.
 
 ## №2 training process
 For each original image from *RTSD-r1* ImageDataGenerator creates 16 (number is choosed manually) new images with random transformations that were selected.\
