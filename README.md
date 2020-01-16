@@ -7,7 +7,7 @@ All code is represented in [Colab Jupyter Notebook file](main_script_EN.ipynb).\
 All results are visualised with images.
 
 ## RTSD info
-! ***RTSD-r1 contains several labels errors. Check the "[RTSD-r1 labeling error elimination](##RTSD-r1-labeling-error-elimination)" part of the project!***
+! ***RTSD-r1 contains several labels errors. Check the "[RTSD-r1 labeling error elimination](##RTSD--r1-labeling-error-elimination)" part of the project!***
 
 RTSD consists of 3 parts: 
 - *Classification*
