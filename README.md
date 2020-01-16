@@ -1,11 +1,14 @@
 # Convolutional Neutral Network for Traffic Sign Recognition. 
 In this project, [Russian Traffic Sign Database (RTSD)](http://graphics.cs.msu.ru/en/research/projects/rtsd) is used. RTSD-r1 (with 32 983 images) was selected to classify traffic signs into 67 groups.\
 Results:
-- 99.485% accuracy on validation dataset
-- 99.961% accuracy on train dataset.
-All code is represented in [Colab Jupyter Notebook file](main_script_EN.ipynb).
+- 99.485% accuracy on validation dataset (51 of 23 088 are wrong predicted)
+- 99.961% accuracy on train dataset (9 of 23 088 images are wrong predicted)\
+All code is represented in [Colab Jupyter Notebook file](main_script_EN.ipynb).\
+All results are visualised with images.
 
 ## RTSD info
+! ***RTSD-r1 contains several labels errors. Check the "[RTSD-r1 labeling error elimination](##RTSD-r1-labeling-error-elimination)" part of the project!***
+
 RTSD consists of 3 parts: 
 - *Classification*
 - *Detection*
@@ -73,13 +76,10 @@ Labels mistakes in class №23:
 Labels mistakes in class №24:
 </br></br><img src="./readme_resources/wrong labels/wrong n24.jpg"></br></br>
 
-Labels mistakes in class №49:
-</br></br><img src="./readme_resources/wrong labels/wrong n49.jpg"></br></br>
-
 Also there are another images which labels should be changed. All problems solving in [code](main_script_EN.ipynb).
 
-For example some of images in class №49 should be horizontally flipped like these images: *[177, 178, 179, 180, 181, 182]*
-</br></br><img src="./readme_resources/Class_49_en.png"></br></br>
+Labels mistakes in class №24 (should be horizontally flipped):
+</br></br><img src="./readme_resources/wrong labels/wrong n49.jpg"></br></br>
 
 ## Creating and №1 training a convolutional neural network model
 CNN model was created with [Keras library](https://keras.io/). [Netron](https://lutzroeder.github.io/netron/) service helped with the fancy model architecture visualisation. Model file like *model.hdf5* is needed for Netron service:
