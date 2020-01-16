@@ -23,6 +23,9 @@ RTSD consists of 3 parts:
 ## Project info
 Python modules versions:
 ```python
+Python version:  3.6.9 (default, Nov  7 2019, 10:44:02) 
+[GCC 8.3.0]
+
 Numpy version:  1.17.4
 Pandas version:  0.25.3
 matplotlib version:  3.1.2
