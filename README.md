@@ -56,10 +56,22 @@ Examples of images per classes in *RTSD-r1*:
 
 ## *RTSD-r1* labeling error elimination
 *RTSD-r1* has some problems with labeling and image displaying. For example some of images in class №1 should be labeled as №2 like these images: *[0, 1, 2, 20, 21, 22, 23]*
-</br></br><img src="./readme_resources/Class_1_en.png"></br></br>
+</br></br><img src="./readme_resources/wrong labels/wrong n1.jpg"></br></br>
 
 For example some of images in class №2 should be labeled as №1 like these images: *[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 28, 29, 32, 33, 34, 466, 467, 468, 469]*
-</br></br><img src="./readme_resources/Class_2_en.png"></br></br>
+</br></br><img src="./readme_resources/wrong labels/wrong n2.jpg"></br></br>
+
+Labels mistakes in class №14:
+</br></br><img src="./readme_resources/wrong labels/wrong n14.jpg"></br></br>
+
+Labels mistakes in class №23:
+</br></br><img src="./readme_resources/wrong labels/wrong n23.jpg"></br></br>
+
+Labels mistakes in class №24:
+</br></br><img src="./readme_resources/wrong labels/wrong n24.jpg"></br></br>
+
+Labels mistakes in class №49:
+</br></br><img src="./readme_resources/wrong labels/wrong n49.jpg"></br></br>
 
 Also there are another images which labels should be changed. All problems solving in [code](main_script_EN.ipynb).
 
