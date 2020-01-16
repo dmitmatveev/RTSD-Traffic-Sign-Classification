@@ -149,7 +149,8 @@ datagen = ImageDataGenerator(
 ```
 Example of images transformation and varying is shown below. Left column - is an original images, other columns represents the images after randomly choosed transformation:
 </br></br><img src="./readme_resources/data_augumentation_example_en.png"></br></br>
-The new training dataset has been increased from 34799 to 139148 samples. The validation and test set remained untouched.
+The new training dataset has been increased from 32 983 * 70% = 23 088 to 369 408 samples. The validation set remained untouched. The test set is unused.
+
 
 ## №2 training process
 For each original image from *RTSD-r1* ImageDataGenerator creates 16 (number is choosed manually) new images with random transformations that were selected.\
