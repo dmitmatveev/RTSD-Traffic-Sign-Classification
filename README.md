@@ -2,9 +2,10 @@
 In this project, [Russian Traffic Sign Database (RTSD)](http://graphics.cs.msu.ru/en/research/projects/rtsd) is used. RTSD-r1 (with 32 983 images) was selected to classify traffic signs into 67 groups.\
 Results:
 - 99.485% accuracy on validation dataset (51 of 9 895 are wrong predicted)
-- 99.961% accuracy on train dataset (9 of 23 088 images are wrong predicted)\
-All code is represented in [Colab Jupyter Notebook file](main_script_EN.ipynb).\
-All results are visualised with images.
+- 99.961% accuracy on train dataset (9 of 23 088 images are wrong predicted)
+
+- All code is represented in [Colab Jupyter Notebook file](main_script_EN.ipynb).
+- All results are visualised with [images](readme-resources).
 
 ## RTSD info
 ! ***RTSD-r1 contains several labels errors. Check the "[RTSD-r1 labeling error elimination](##RTSD--r1-labeling-error-elimination)" part of the project!***
